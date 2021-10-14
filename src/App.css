@@ -1,0 +1,129 @@
+/* Core Styling */
+:root {
+  --primary-color: #c9d5cb;
+  --secondary-color: #f4f4ec;
+  --light-color: #d4ccc4;
+  --dark-color: #cbc3ac;
+}
+
+body {
+  /* Background vector created by rawpixel.com via freepik.com and can be found at: https://www.freepik.com/vectors/background */
+  background: url(./images/vectorImage.jpg) no-repeat center center/cover;
+  height: 100vh;
+}
+
+/* Container Styling */
+.container {
+  overflow: hidden;
+  background-color: var(--secondary-color);
+  padding: 20px 40px 40px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+  -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba(203, 195, 172, 1);
+}
+
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+
+.container::before {
+  left: 40%;
+  bottom: -130%;
+  background-color: rgba(212, 204, 196, 1);
+  -webkit-animation: blobs 6s infinite linear;
+  -moz-animation: blobs 6s infinite linear;
+  animation: blobs 6s infinite linear;
+}
+
+.container::after {
+  left: 35%;
+  bottom: -125%;
+  background-color: rgba(203, 195, 172, 1);
+  -webkit-animation: blobs 7s infinite;
+  -moz-animation: blobs 7s infinite;
+  animation: blobs 7s infinite;
+}
+
+/* Button Styling */
+.button {
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 120px;
+  border: 0;
+  padding: 15px 0;
+  margin-top: 10px;
+  margin-left: 4rem;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+
+.button:hover {
+  background-color: var(--light-color);
+  color: white;
+}
+
+.get-started-button {
+  margin-left: 8rem;
+}
+
+/* Additional Blobs Effect Styling */
+@-webkit-keyframes blobs {
+  from {
+    -webkit-transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes blobs {
+  from {
+    -moz-transform: rotate(0);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes blobs {
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
