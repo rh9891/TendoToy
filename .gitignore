@@ -10,9 +10,11 @@ node_modules/
 /coverage
 
 # production
-/client/build
 /build
-/config
+client/build
+config/default.json
+config/dev.js
+config/production.json
 
 # misc
 .DS_Store
