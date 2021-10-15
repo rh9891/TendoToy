@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Landing from "./Landing";
 import PatientRecommendation from "./PatientRecommendation";
 import DoctorDiagnosis from "./DoctorDiagnosis";
 import PatientDiagnosis from "./PatientDiagnosis";
 import Confirmation from "./Confirmation";
 import Success from "./Success";
+
+import { addResponses } from "../actions/responseActions";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -17,13 +20,15 @@ const FeedbackForm = () => {
     satisfaction: "",
   });
 
+  const { rating, comments, communication, satisfaction } = formData;
+
   const [page, setPage] = useState(1);
 
-  const nextPage = () => {
-    if (page < 6) {
+  const dispatch = useDispatch();
+
+  const nextPage = (formData) => {
+    if (page < 7) {
       setPage(page + 1);
-    } else if (page === 5) {
-      console.log(setFormData);
     }
   };
 
@@ -31,6 +36,18 @@ const FeedbackForm = () => {
     if (page > 1) {
       setPage(page - 1);
     }
+  };
+
+  const onSubmit = () => {
+    const newResponse = {
+      communication,
+      rating,
+      comments,
+      satisfaction,
+    };
+
+    dispatch(addResponses(newResponse));
+    nextPage();
   };
 
   const handleChange = (event) => {
@@ -63,7 +80,7 @@ const FeedbackForm = () => {
         {page < 6 ? (
           <button
             className={"button " + (page === 1 ? "get-started-button" : "")}
-            onClick={nextPage}
+            onClick={page === 5 ? onSubmit : nextPage}
           >
             {page === 1
               ? "Get Started"

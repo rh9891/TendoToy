@@ -1,0 +1,3 @@
+export const ADD_RESPONSES = "ADD_RESPONSES";
+export const RESPONSES_ERROR = "RESPONSES_ERROR";
+export const SET_LOADING = "SET_LOADING";

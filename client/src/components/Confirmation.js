@@ -9,9 +9,6 @@ import Typography from "@mui/material/Typography";
 const Confirmation = ({ data }) => {
   const { communication, rating, comments, satisfaction } = data;
 
-  console.log(communication, rating, comments, satisfaction);
-  console.log(satisfaction);
-
   return (
     <CardContent>
       <Typography
