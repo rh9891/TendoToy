@@ -26,11 +26,13 @@ const FeedbackForm = () => {
 
   const dispatch = useDispatch();
 
-  const nextPage = (formData) => {
+  const nextPage = () => {
     if (page < 7) {
       setPage(page + 1);
     }
   };
+
+  console.log(page);
 
   const prevPage = () => {
     if (page > 1) {
